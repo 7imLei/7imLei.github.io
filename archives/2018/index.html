@@ -5,7 +5,7 @@
   
 
 
-<html class="theme-next muse use-motion" lang="zh-CN">
+<html class="theme-next mist use-motion" lang="zh-Hans">
 <head>
   <meta charset="UTF-8"/>
 <meta http-equiv="X-UA-Compatible" content="IE=edge" />
@@ -38,10 +38,6 @@
 
 
 
-  
-  
-  <link href="/lib/fancybox/source/jquery.fancybox.css?v=2.1.5" rel="stylesheet" type="text/css" />
-
 
 
 
@@ -50,19 +46,19 @@
 
 <link href="/lib/font-awesome/css/font-awesome.min.css?v=4.6.2" rel="stylesheet" type="text/css" />
 
-<link href="/css/main.css?v=5.1.4" rel="stylesheet" type="text/css" />
+<link href="/css/main.css?v=6.0.0" rel="stylesheet" type="text/css" />
 
 
-  <link rel="apple-touch-icon" sizes="180x180" href="/images/apple-touch-icon-next.png?v=5.1.4">
+  <link rel="apple-touch-icon" sizes="180x180" href="/images/apple-touch-icon-next.png?v=6.0.0">
 
 
-  <link rel="icon" type="image/png" sizes="32x32" href="/images/favicon-32x32-next.png?v=5.1.4">
+  <link rel="icon" type="image/png" sizes="32x32" href="/images/favicon-32x32-next.png?v=6.0.0">
 
 
-  <link rel="icon" type="image/png" sizes="16x16" href="/images/favicon-16x16-next.png?v=5.1.4">
+  <link rel="icon" type="image/png" sizes="16x16" href="/images/favicon-16x16-next.png?v=6.0.0">
 
 
-  <link rel="mask-icon" href="/images/logo.svg?v=5.1.4" color="#222">
+  <link rel="mask-icon" href="/images/logo.svg?v=6.0.0" color="#222">
 
 
 
@@ -79,13 +75,19 @@
 
 
 
-<meta property="og:type" content="website">
-<meta property="og:title" content="QQANDD Home">
-<meta property="og:url" content="http://qqandd.com/archives/2018/index.html">
+<meta name="description" content="这里核心驱动的是 Hexo!具体明细如下： Quick StartCreate a new post1$ hexo new &quot;My New Post&quot; More info: Writing Run server1$ hexo server More info: Server Generate static files1$ hexo generate More info: Generating D">
+<meta property="og:type" content="article">
+<meta property="og:title" content="延续QQANDD">
+<meta property="og:url" content="http://qqandd.com/2018/01/10/延续QQANDD/index.html">
 <meta property="og:site_name" content="QQANDD Home">
-<meta property="og:locale" content="zh-CN">
+<meta property="og:description" content="这里核心驱动的是 Hexo!具体明细如下： Quick StartCreate a new post1$ hexo new &quot;My New Post&quot; More info: Writing Run server1$ hexo server More info: Server Generate static files1$ hexo generate More info: Generating D">
+<meta property="og:locale" content="zh-Hans">
+<meta property="og:image" content="http://qqandd.com/images/Tim-Melanie.png">
+<meta property="og:updated_time" content="2018-01-10T10:56:45.678Z">
 <meta name="twitter:card" content="summary">
-<meta name="twitter:title" content="QQANDD Home">
+<meta name="twitter:title" content="延续QQANDD">
+<meta name="twitter:description" content="这里核心驱动的是 Hexo!具体明细如下： Quick StartCreate a new post1$ hexo new &quot;My New Post&quot; More info: Writing Run server1$ hexo server More info: Server Generate static files1$ hexo generate More info: Generating D">
+<meta name="twitter:image" content="http://qqandd.com/images/Tim-Melanie.png">
 
 
 
@@ -93,15 +95,17 @@
   var NexT = window.NexT || {};
   var CONFIG = {
     root: '/',
-    scheme: 'Muse',
-    version: '5.1.4',
+    scheme: 'Mist',
+    version: '6.0.0',
     sidebar: {"position":"left","display":"post","offset":12,"b2t":false,"scrollpercent":false,"onmobile":false},
-    fancybox: true,
+    fancybox: false,
+    fastclick: false,
+    lazyload: false,
     tabs: true,
     motion: {"enable":true,"async":false,"transition":{"post_block":"fadeIn","post_header":"slideDownIn","post_body":"slideDownIn","coll_header":"slideLeftIn","sidebar":"slideUpIn"}},
     duoshuo: {
       userId: '0',
-      author: 'Author'
+      author: '博主'
     },
     algolia: {
       applicationID: '',
@@ -115,13 +119,13 @@
 
 
 
-  <link rel="canonical" href="http://qqandd.com/archives/2018/"/>
+  <link rel="canonical" href="http://qqandd.com/2018/01/10/延续QQANDD/"/>
 
 
 
 
 
-  <title>Archiv | QQANDD Home</title>
+  <title>归档 | QQANDD Home</title>
   
 
 
@@ -133,7 +137,7 @@
 
 </head>
 
-<body itemscope itemtype="http://schema.org/WebPage" lang="zh-CN">
+<body itemscope itemtype="http://schema.org/WebPage" lang="zh-Hans">
 
   
   
@@ -143,8 +147,10 @@
   <div class="container sidebar-position-left page-archive">
     <div class="headband"></div>
 
+    
+
     <header id="header" class="header" itemscope itemtype="http://schema.org/WPHeader">
-      <div class="header-inner"><div class="site-brand-wrapper">
+      <div class="header-inner"> <div class="site-brand-wrapper">
   <div class="site-meta ">
     
 
@@ -181,7 +187,25 @@
             
               <i class="menu-item-icon fa fa-fw fa-home"></i> <br />
             
-            Startseite
+
+            
+              首页
+            
+
+          </a>
+        </li>
+      
+        
+        <li class="menu-item menu-item-tags">
+          <a href="/tags/" rel="section">
+            
+              <i class="menu-item-icon fa fa-fw fa-tags"></i> <br />
+            
+
+            
+              标签
+            
+
           </a>
         </li>
       
@@ -191,7 +215,11 @@
             
               <i class="menu-item-icon fa fa-fw fa-archive"></i> <br />
             
-            Archiv
+
+            
+              归档
+            
+
           </a>
         </li>
       
@@ -227,7 +255,7 @@
         
           
         
-        Öhm..! Ein Artikel. Bleib dran.
+        嗯..! 目前共计 1 篇日志。 继续努力。
       </span>
 
       
@@ -318,24 +346,24 @@
               <p class="site-description motion-element" itemprop="description"></p>
           </div>
 
-          <nav class="site-state motion-element">
-
-            
-              <div class="site-state-item site-state-posts">
+          
+            <nav class="site-state motion-element">
               
-                <a href="/archives/">
+                <div class="site-state-item site-state-posts">
+                
+                  <a href="/archives/">
+                
+                    <span class="site-state-item-count">1</span>
+                    <span class="site-state-item-name">日志</span>
+                  </a>
+                </div>
               
-                  <span class="site-state-item-count">1</span>
-                  <span class="site-state-item-name">Artikel</span>
-                </a>
-              </div>
-            
 
-            
+              
 
-            
-
-          </nav>
+              
+            </nav>
+          
 
           
 
@@ -373,10 +401,12 @@
   <span class="author" itemprop="copyrightHolder">Tim</span>
 
   
+
+  
 </div>
 
 
-  <div class="powered-by">Erstellt mit  <a class="theme-link" target="_blank" href="https://hexo.io">Hexo</a></div>
+  <div class="powered-by">由 <a class="theme-link" target="_blank" href="https://hexo.io">Hexo</a> 强力驱动</div>
 
 
 
@@ -384,7 +414,7 @@
 
 
 
-  <div class="theme-info">Theme &mdash; <a class="theme-link" target="_blank" href="https://github.com/iissnan/hexo-theme-next">NexT.Muse</a> v5.1.4</div>
+  <div class="theme-info">主题 &mdash; <a class="theme-link" target="_blank" href="https://github.com/theme-next/hexo-theme-next">NexT.Mist</a> v6.0.0</div>
 
 
 
@@ -428,7 +458,11 @@
 
 
 
-  
+
+
+
+
+
 
 
 
@@ -448,16 +482,6 @@
 
   
   
-    <script type="text/javascript" src="/lib/fastclick/lib/fastclick.min.js?v=1.0.6"></script>
-  
-
-  
-  
-    <script type="text/javascript" src="/lib/jquery_lazyload/jquery.lazyload.js?v=1.9.7"></script>
-  
-
-  
-  
     <script type="text/javascript" src="/lib/velocity/velocity.min.js?v=1.2.1"></script>
   
 
@@ -466,18 +490,13 @@
     <script type="text/javascript" src="/lib/velocity/velocity.ui.min.js?v=1.2.1"></script>
   
 
-  
-  
-    <script type="text/javascript" src="/lib/fancybox/source/jquery.fancybox.pack.js?v=2.1.5"></script>
-  
-
 
   
 
 
-  <script type="text/javascript" src="/js/src/utils.js?v=5.1.4"></script>
+  <script type="text/javascript" src="/js/src/utils.js?v=6.0.0"></script>
 
-  <script type="text/javascript" src="/js/src/motion.js?v=5.1.4"></script>
+  <script type="text/javascript" src="/js/src/motion.js?v=6.0.0"></script>
 
 
 
@@ -489,7 +508,7 @@
   
 
 
-  <script type="text/javascript" src="/js/src/bootstrap.js?v=5.1.4"></script>
+  <script type="text/javascript" src="/js/src/bootstrap.js?v=6.0.0"></script>
 
 
 
