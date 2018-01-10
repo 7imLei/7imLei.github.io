@@ -1,0 +1,10 @@
+# hexo robots.txt
+User-agent: *
+Allow: /
+
+Disallow: /js/
+Disallow: /css/
+Disallow: /fonts/
+
+Sitemap: http://blog.jybx.me/sitemap.xml
+Sitemap: http://blog.jybx.me/baidusitemap.xml
