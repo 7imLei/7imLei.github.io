@@ -2,6 +2,13 @@
 <urlset xmlns="http://www.sitemaps.org/schemas/sitemap/0.9">
   
   <url>
+    <loc>http://qqandd.com/categories/index.html</loc>
+    
+    <lastmod>2018-01-15T16:13:43.186Z</lastmod>
+    
+  </url>
+  
+  <url>
     <loc>http://qqandd.com/posts/45172/</loc>
     
     <lastmod>2018-01-15T16:09:22.875Z</lastmod>
@@ -40,13 +47,6 @@
     <loc>http://qqandd.com/tags/index.html</loc>
     
     <lastmod>2018-01-12T01:38:09.876Z</lastmod>
-    
-  </url>
-  
-  <url>
-    <loc>http://qqandd.com/categories/index.html</loc>
-    
-    <lastmod>2018-01-10T07:02:31.918Z</lastmod>
     
   </url>
   
