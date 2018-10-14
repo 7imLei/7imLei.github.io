@@ -6,5 +6,5 @@ Disallow: /js/
 Disallow: /css/
 Disallow: /fonts/
 
-Sitemap: http://qqandd.com/sitemap.xml
-Sitemap: http://qqandd.com/baidusitemap.xml
+Sitemap: http://blog.jybx.me/sitemap.xml
+Sitemap: http://blog.jybx.me/baidusitemap.xml
