@@ -1664,7 +1664,7 @@ pre .javascript .function {
   font-stretch: normal;
   font-size: 18px;
   font-family: "Microsoft Yahei";
-  background: #f44336;
+  background: #666;
 }
 #rewardButton span:hover {
   background: #f7877f;
@@ -1940,7 +1940,7 @@ pre .javascript .function {
   width: 4px;
   height: 4px;
   border-radius: 50%;
-  background: #f9f;
+  background: #a18b70;
 }
 .links-of-blogroll {
   font-size: 13px;
