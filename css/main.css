@@ -404,7 +404,7 @@ table {
   border-collapse: collapse;
   border-spacing: 0;
   border: 1px solid #ddd;
-  font-size: 14px;
+  font-size: 16px;
   table-layout: fixed;
   word-wrap: break-all;
 }
@@ -937,7 +937,7 @@ pre .javascript .function {
 .btn {
   display: inline-block;
   padding: 0 20px;
-  font-size: 14px;
+  font-size: 16px;
   color: #555;
   background: transparent;
   border: 2px solid #222;
@@ -1869,7 +1869,7 @@ pre .javascript .function {
 .site-description {
   margin-top: 5px;
   text-align: center;
-  font-size: 14px;
+  font-size: 16px;
   color: #999;
 }
 .site-state {
@@ -1940,7 +1940,7 @@ pre .javascript .function {
   width: 4px;
   height: 4px;
   border-radius: 50%;
-  background: #9d659f;
+  background: #eb7c1c;
 }
 .links-of-blogroll {
   font-size: 13px;
