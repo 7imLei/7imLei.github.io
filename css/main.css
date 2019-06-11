@@ -1509,7 +1509,7 @@ pre .javascript .function {
   color: #999;
 }
 .posts-expand .post-meta .post-description {
-  font-size: 14px;
+  font-size: 16px;
   margin-top: 2px;
 }
 .post-meta-divider {
@@ -1575,7 +1575,7 @@ pre .javascript .function {
   position: relative;
   display: block;
   line-height: 25px;
-  font-size: 14px;
+  font-size: 16px;
   color: #555;
   border-bottom: none;
 }
@@ -1940,7 +1940,7 @@ pre .javascript .function {
   width: 4px;
   height: 4px;
   border-radius: 50%;
-  background: #58cd33;
+  background: #ab6ecd;
 }
 .links-of-blogroll {
   font-size: 13px;
