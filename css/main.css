@@ -1497,7 +1497,7 @@ pre .javascript .function {
   margin: 3px 0 60px 0;
   color: #999;
   font-family: 'Lato', 'Lato', "PingFang SC", "Microsoft YaHei", sans-serif;
-  font-size: 16px;
+  font-size: 12px;
   text-align: center;
 }
 .posts-expand .post-meta .post-category-list {
@@ -1940,7 +1940,7 @@ pre .javascript .function {
   width: 4px;
   height: 4px;
   border-radius: 50%;
-  background: #85ffc9;
+  background: #dd22db;
 }
 .links-of-blogroll {
   font-size: 13px;
