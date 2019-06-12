@@ -404,7 +404,7 @@ table {
   border-collapse: collapse;
   border-spacing: 0;
   border: 1px solid #ddd;
-  font-size: 18px;
+  font-size: 16px;
   table-layout: fixed;
   word-wrap: break-all;
 }
@@ -1940,7 +1940,7 @@ pre .javascript .function {
   width: 4px;
   height: 4px;
   border-radius: 50%;
-  background: #7f0b33;
+  background: #1b6ac7;
 }
 .links-of-blogroll {
   font-size: 13px;
@@ -2918,12 +2918,12 @@ hr {
 }
 @media (max-width: 767px) {
   .posts-expand .post-title {
-    font-size: 16px;
+    font-size: 17px;
   }
 }
 @media (min-width: 1600px) {
   .posts-expand .post-title {
-    font-size: 20px;
+    font-size: 21px;
   }
 }
 .posts-expand .post-title:hover:before {
