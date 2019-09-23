@@ -1437,7 +1437,7 @@ pre .javascript .function {
 }
 .posts-collapse .post-title {
   margin-left: 60px;
-  font-size: 40px;
+  font-size: 15px;
   font-weight: normal;
   line-height: inherit;
 }
@@ -1852,10 +1852,10 @@ pre .javascript .function {
 .site-author-image {
   display: block;
   margin: 0 auto;
-  padding: 2px;
+  padding: 0px;
   max-width: 96px;
   height: auto;
-  border: 2px solid #333;
+  border: 0px solid #333;
 }
 .site-author-name {
   margin: 5px 0 0;
@@ -1937,7 +1937,7 @@ pre .javascript .function {
   width: 4px;
   height: 4px;
   border-radius: 50%;
-  background: #ff9645;
+  background: #f2ffff;
 }
 .links-of-blogroll {
   font-size: 13px;
