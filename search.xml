@@ -190,7 +190,7 @@
   <entry>
     <title><![CDATA[如何去掉 Eext 主题中的图片边框]]></title>
     <url>%2Fposts%2F60867%2F</url>
-    <content type="text"><![CDATA[开发者工具 查询具体CSS文件目标 border设置为0 img { box-sizing: border-box; margin: auto; padding: 3px; border: 0px solid $gray-lighter; }]]></content>
+    <content type="text"><![CDATA[开发者工具 查询具体CSS文件目标 border设置为0 img { box-sizing: border-box; margin: auto; padding: 3px; border: 0px solid $gray-lighter; } 如何却掉黑色版本的边框“Hexo⁩ ▸ ⁨themes⁩ ▸ ⁨next⁩ ▸ ⁨source⁩ ▸ ⁨css⁩ ▸ ⁨_variables ▸ base.styl” $site-author-image-padding = 0px$site-author-image-border-width = 0px]]></content>
       <categories>
         <category>Tim</category>
       </categories>
