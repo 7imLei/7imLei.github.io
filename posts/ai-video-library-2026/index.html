@@ -1,0 +1,1489 @@
+<!DOCTYPE html>
+
+
+
+  
+
+
+<html class="theme-next mist use-motion" lang="zh-Hans">
+<head>
+  <meta charset="UTF-8"/>
+<meta http-equiv="X-UA-Compatible" content="IE=edge" />
+<meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1"/>
+<meta name="theme-color" content="#222">
+
+
+  <script>
+  (function(i,s,o,g,r,a,m){i["DaoVoiceObject"]=r;i[r]=i[r]||function(){(i[r].q=i[r].q||[]).push(arguments)},i[r].l=1*new Date();a=s.createElement(o),m=s.getElementsByTagName(o)[0];a.async=1;a.src=g;a.charset="utf-8";m.parentNode.insertBefore(a,m)})(window,document,"script",('https:' == document.location.protocol ? 'https:' : 'http:') + "//widget.daovoice.io/widget/0f81ff2f.js","daovoice")
+  daovoice('init', {
+      app_id: "670714c0"
+    });
+  daovoice('update');
+  </script>
+
+
+
+
+
+
+
+
+<meta http-equiv="Cache-Control" content="no-transform" />
+<meta http-equiv="Cache-Control" content="no-siteapp" />
+
+
+
+  <meta name="google-site-verification" content="hBiIa97uT28wMUJYFEbjcddwg_2W9klFOs8tOfX59Kg" />
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+  
+
+<link href="//maxcdn.bootstrapcdn.com/font-awesome/4.7.0/css/font-awesome.min.css" rel="stylesheet" type="text/css" />
+
+<link href="/css/main.css?v=6.0.0" rel="stylesheet" type="text/css" />
+
+
+  <link rel="apple-touch-icon" sizes="180x180" href="/images/apple-touch-icon-next.png?v=6.0.0">
+
+
+  <link rel="icon" type="image/png" sizes="32x32" href="/images/favicon-32x32-next.png?v=6.0.0">
+
+
+  <link rel="icon" type="image/png" sizes="16x16" href="/images/favicon-16x16-next.png?v=6.0.0">
+
+
+  <link rel="mask-icon" href="/images/logo.svg?v=6.0.0" color="#222">
+
+
+
+
+
+  <meta name="keywords" content="Hexo, NexT" />
+
+
+
+
+
+
+
+
+
+
+<meta property="og:type" content="website">
+<meta property="og:title" content="卡特格雷">
+<meta property="og:url" content="https://www.qqandd.com/posts/ai-video-library-2026/index.html">
+<meta property="og:site_name" content="QQANDD Home">
+<meta property="og:locale" content="zh-Hans">
+<meta property="og:updated_time" content="2026-06-01T02:00:00.000Z">
+<meta name="twitter:card" content="summary">
+<meta name="twitter:title" content="卡特格雷">
+
+
+
+<script type="text/javascript" id="hexo.configurations">
+  var NexT = window.NexT || {};
+  var CONFIG = {
+    root: '/',
+    scheme: 'Mist',
+    version: '6.0.0',
+    sidebar: {"position":"left","display":"post","offset":12,"b2t":false,"scrollpercent":false,"onmobile":true},
+    fancybox: false,
+    fastclick: false,
+    lazyload: false,
+    tabs: true,
+    motion: {"enable":true,"async":false,"transition":{"post_block":"fadeIn","post_header":"slideDownIn","post_body":"slideDownIn","coll_header":"slideLeftIn","sidebar":"slideUpIn"}},
+    duoshuo: {
+      userId: '0',
+      author: '博主'
+    },
+    algolia: {
+      applicationID: '',
+      apiKey: '',
+      indexName: '',
+      hits: {"per_page":10},
+      labels: {"input_placeholder":"Search for Posts","hits_empty":"哎呀！让陛下失望了，没找到你要的: ${query}","hits_stats":"找到约${hits}条结果（用时${time}ms）"}
+    }
+  };
+</script>
+
+
+
+  <link rel="canonical" href="https://www.qqandd.com/posts/ai-video-library-2026/"/>
+
+
+
+
+
+  <title>用 AI 去分析我的视频素材库，整理分类 | QQANDD Home</title>
+  
+
+
+
+
+
+
+
+
+
+<!-- https -->
+<script type="text/javascript">
+    var host = "www.qqandd.com";
+    if ((host == window.location.host) && (window.location.protocol != "https:"))
+        window.location.protocol = "https";
+</script> 
+</head>
+
+<body itemscope itemtype="http://schema.org/WebPage" lang="zh-Hans">
+
+  
+  
+    
+  
+
+  <div class="container sidebar-position-left page-post-detail">
+    <div class="headband"></div>
+
+    
+
+    <header id="header" class="header" itemscope itemtype="http://schema.org/WPHeader">
+      <div class="header-inner"> <div class="site-brand-wrapper">
+  <div class="site-meta ">
+    
+
+    <div class="custom-logo-site-title">
+      <a href="/"  class="brand" rel="start">
+        <span class="logo-line-before"><i></i></span>
+        <span class="site-title">QQANDD Home</span>
+        <span class="logo-line-after"><i></i></span>
+      </a>
+    </div>
+      
+        <p class="site-subtitle">All About Us</p>
+      
+  </div>
+
+  <div class="site-nav-toggle">
+    <button>
+      <span class="btn-bar"></span>
+      <span class="btn-bar"></span>
+      <span class="btn-bar"></span>
+    </button>
+  </div>
+</div>
+
+<nav class="site-nav">
+  
+
+  
+    <ul id="menu" class="menu">
+      
+        
+        <li class="menu-item menu-item-home">
+          <a href="/" rel="section">
+            
+              <i class="menu-item-icon fa fa-fw fa-home"></i> <br />
+            
+
+            
+              首页
+            
+
+          </a>
+        </li>
+      
+        
+        <li class="menu-item menu-item-tags">
+          <a href="/tags/" rel="section">
+            
+              <i class="menu-item-icon fa fa-fw fa-tags"></i> <br />
+            
+
+            
+              标签
+            
+
+          </a>
+        </li>
+      
+        
+        <li class="menu-item menu-item-categories">
+          <a href="/categories/" rel="section">
+            
+              <i class="menu-item-icon fa fa-fw fa-th"></i> <br />
+            
+
+            
+              分类
+            
+
+          </a>
+        </li>
+      
+        
+        <li class="menu-item menu-item-archives">
+          <a href="/archives/" rel="section">
+            
+              <i class="menu-item-icon fa fa-fw fa-archive"></i> <br />
+            
+
+            
+              归档
+            
+
+          </a>
+        </li>
+      
+
+      
+        <li class="menu-item menu-item-search">
+          
+            <a href="javascript:;" class="popup-trigger">
+          
+            
+              <i class="menu-item-icon fa fa-search fa-fw"></i> <br />
+            
+            搜索
+          </a>
+        </li>
+      
+    </ul>
+  
+
+  
+    <div class="site-search">
+      
+  <div class="popup search-popup local-search-popup">
+  <div class="local-search-header clearfix">
+    <span class="search-icon">
+      <i class="fa fa-search"></i>
+    </span>
+    <span class="popup-btn-close">
+      <i class="fa fa-times-circle"></i>
+    </span>
+    <div class="local-search-input-wrapper">
+      <input autocomplete="off"
+             placeholder="搜索..." spellcheck="false"
+             type="text" id="local-search-input">
+    </div>
+  </div>
+  <div id="local-search-result"></div>
+</div>
+
+
+
+    </div>
+  
+</nav>
+
+
+
+ </div>
+    </header>
+
+    <main id="main" class="main">
+      <div class="main-inner">
+        <div class="content-wrap">
+          <div id="content" class="content">
+            
+
+  <div id="posts" class="posts-expand">
+    
+
+  
+
+  
+  
+  
+
+  
+
+  <article class="post post-type-normal" itemscope itemtype="http://schema.org/Article">
+  
+  
+  
+  <div class="post-block">
+    <link itemprop="mainEntityOfPage" href="https://www.qqandd.com/posts/ai-video-library-2026/">
+
+    <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
+      <meta itemprop="name" content="Tim & Melanie">
+      <meta itemprop="description" content="">
+      <meta itemprop="image" content="/uploads/avatar.png">
+    </span>
+
+    <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
+      <meta itemprop="name" content="QQANDD Home">
+    </span>
+
+    
+      <header class="post-header">
+
+        
+        
+          <h1 class="post-title" itemprop="name headline">用 AI 去分析我的视频素材库，整理分类</h1>
+        
+
+        <div class="post-meta">
+          <span class="post-time">
+            
+              <span class="post-meta-item-icon">
+                <i class="fa fa-calendar-o"></i>
+              </span>
+              
+                <span class="post-meta-item-text">发表于</span>
+              
+              <time title="创建于" itemprop="dateCreated datePublished" datetime="2026-06-01T10:00:00+08:00">2026-06-01</time>
+            
+
+            
+
+            
+          </span>
+
+          
+
+          
+            
+          
+
+          
+          
+
+          
+
+          
+            <div class="post-wordcount">
+              
+
+              
+                <span class="post-meta-item-icon">
+                  <i class="fa fa-file-word-o"></i>
+                </span>
+                
+                  <span class="post-meta-item-text">字数统计&#58;</span>
+                
+                <span title="字数统计">1650</span>
+              
+
+              
+                <span class="post-meta-divider">|</span>
+              
+
+              
+                <span class="post-meta-item-icon">
+                  <i class="fa fa-clock-o"></i>
+                </span>
+                
+                  <span class="post-meta-item-text">阅读时长 &asymp;</span>
+                
+                <span title="阅读时长">3 mins.</span>
+              
+            </div>
+          
+
+          
+
+        </div>
+      </header>
+    
+
+    
+    
+    
+    <div class="post-body" itemprop="articleBody">
+
+      
+      
+
+      
+        <style>
+  .ai-video-story {
+    --ink: #2b2f33;
+    --muted: #6b7280;
+    --line: #e7edf2;
+    --blue: #2563eb;
+    --blue-soft: #eef5ff;
+    --gold: #b7791f;
+    --gold-soft: #fff7e6;
+    --green: #2f855a;
+    --green-soft: #edf8f1;
+    color: var(--ink);
+  }
+  .ai-video-story .lead-note,
+  .ai-video-story .closing-note {
+    border-left: 4px solid var(--blue);
+    background: linear-gradient(90deg, var(--blue-soft), rgba(238, 245, 255, 0));
+    margin: 0 0 24px;
+    padding: 18px 20px;
+  }
+  .ai-video-story .lead-note p,
+  .ai-video-story .closing-note p {
+    margin: 0;
+    color: #1f3f75;
+    font-size: 1.04em;
+    line-height: 1.9;
+  }
+  .ai-video-story .soft-panel {
+    background: #fbfcfd;
+    border: 1px solid var(--line);
+    border-radius: 6px;
+    margin: 22px 0;
+    padding: 18px 20px;
+  }
+  .ai-video-story .principles {
+    border-color: #f0dfb8;
+    background: var(--gold-soft);
+  }
+  .ai-video-story .principles ul,
+  .ai-video-story .flow-list ol,
+  .ai-video-story .category-grid ul {
+    margin-bottom: 0;
+  }
+  .ai-video-story .principles li::marker {
+    color: var(--gold);
+  }
+  .ai-video-story .flow-list {
+    border-color: #cfe7d7;
+    background: var(--green-soft);
+  }
+  .ai-video-story .flow-list li::marker {
+    color: var(--green);
+    font-weight: 700;
+  }
+  .ai-video-story .metric-grid {
+    display: grid;
+    grid-template-columns: repeat(3, minmax(0, 1fr));
+    gap: 12px;
+    margin: 24px 0 18px;
+  }
+  .ai-video-story .metric-card {
+    border: 1px solid var(--line);
+    border-radius: 6px;
+    padding: 16px 14px;
+    background: #fff;
+    text-align: center;
+  }
+  .ai-video-story .metric-card strong {
+    display: block;
+    color: var(--blue);
+    font-size: 1.55em;
+    line-height: 1.2;
+    margin-bottom: 6px;
+  }
+  .ai-video-story .metric-card span {
+    color: var(--muted);
+    font-size: 0.92em;
+  }
+  .ai-video-story .rename-demo {
+    border: 1px solid var(--line);
+    border-radius: 6px;
+    margin: 20px 0;
+    overflow: hidden;
+    background: #fff;
+  }
+  .ai-video-story .tree-block {
+    border: 1px solid var(--line);
+    border-radius: 6px;
+    background: #101820;
+    color: #d7e5ef;
+    margin: 20px 0;
+    padding: 18px 20px;
+    overflow-x: auto;
+  }
+  .ai-video-story .tree-block code {
+    color: inherit;
+    background: transparent;
+    border: 0;
+    padding: 0;
+    white-space: pre;
+    font-size: 0.92em;
+    line-height: 1.8;
+  }
+  .ai-video-story .tree-note {
+    color: var(--muted);
+    font-size: 0.94em;
+    margin-top: -8px;
+  }
+  .ai-video-story .rename-row {
+    padding: 16px 18px;
+  }
+  .ai-video-story .rename-row + .rename-row {
+    border-top: 1px solid var(--line);
+    background: #fbfcfd;
+  }
+  .ai-video-story .rename-label {
+    display: block;
+    color: var(--muted);
+    font-size: 0.88em;
+    margin-bottom: 7px;
+  }
+  .ai-video-story .rename-row code {
+    white-space: normal;
+    word-break: break-word;
+  }
+  .ai-video-story .category-grid ul {
+    display: grid;
+    grid-template-columns: repeat(2, minmax(0, 1fr));
+    gap: 10px 18px;
+    padding-left: 20px;
+  }
+  .ai-video-story .resolution-table table,
+  .ai-video-story .result-table table {
+    margin-top: 14px;
+  }
+  .ai-video-story .pull-quote {
+    color: var(--gold);
+    font-size: 1.08em;
+    line-height: 1.9;
+    text-align: center;
+    margin: 28px auto;
+    max-width: 620px;
+  }
+  .ai-video-story .pull-quote::before,
+  .ai-video-story .pull-quote::after {
+    content: '';
+    display: block;
+    width: 52px;
+    height: 2px;
+    margin: 14px auto;
+    background: var(--gold);
+    opacity: .55;
+  }
+  @media (max-width: 767px) {
+    .ai-video-story .metric-grid,
+    .ai-video-story .category-grid ul {
+      grid-template-columns: 1fr;
+    }
+  }
+</style>
+<div class="ai-video-story">
+  <blockquote class="lead-note">
+    <p>我一直以为，拍视频最难的是拍摄和剪辑。后来发现，真正麻烦的事情在它们中间：素材管理。</p>
+  </blockquote>
+  <p>那些被相机、手机、Blackmagic、屏幕录制、下载目录、临时文件夹留下来的视频，安静地躺在 NAS 里。它们不是没有价值，只是没有名字，没有位置，也没有办法被快速想起来。时间久了以后，素材库就像一个没有地图的仓库，明明里面装着很多生活，却很难真的拿出来使用。</p>
+  <p>这一次，我想做的事情不是马上剪出一条 vlog，而是先把这些视频重新整理成一个可以被理解、可以被继续使用的素材库。</p>
+
+  <div class="metric-grid">
+    <div class="metric-card"><strong>7473</strong><span>段素材进入统一素材库</span></div>
+    <div class="metric-card"><strong>10</strong><span>个一级方向重新分流</span></div>
+    <div class="metric-card"><strong>3 帧</strong><span>为每段视频建立初步判断</span></div>
+  </div>
+
+  <h2 id="为什么要整理"><a href="#为什么要整理" class="headerlink" title="为什么要整理"></a>为什么要整理</h2>
+  <p>过去的问题很简单：素材太多，路径太乱，文件名太抽象。很多视频还停留在类似 <code>dam 2025-02-06 171914.078.MOV</code> 这样的名字里。它确实是一段视频，但它没有告诉我拍摄时间之外的任何东西。</p>
+  <p>想剪京都的时候，我不知道哪些是寺社，哪些是街巷，哪些是餐厅，哪些只是路上的车窗风景。想剪武汉的时候，也很难快速找到街巷、建筑、植物、咖啡和生活片段。于是剪辑还没开始，人的耐心就先被文件夹消耗掉了。</p>
+
+  <div class="soft-panel principles">
+    <h2 id="我给系统定的规矩"><a href="#我给系统定的规矩" class="headerlink" title="我给系统定的规矩"></a>我给系统定的规矩</h2>
+    <p>这些素材不是普通文件，它们是过去几年里面随手拍下来的片段。里面有旅行，有武汉的街巷，有厨房、咖啡、植物、朋友、车窗外的路，还有很多当时没有想好怎么用、但后来可能会变得很重要的画面。</p>
+    <ul>
+      <li>不删除任何媒体文件。</li>
+      <li>不覆盖已经存在的文件。</li>
+      <li>跳过路径中包含 <code>已归档</code> 的内容。</li>
+      <li>每一次移动、改名都留下日志。</li>
+      <li>移动之后校验文件大小，确认源文件和目标文件没有出错。</li>
+    </ul>
+  </div>
+  <p>这几个规则看起来很保守，但我觉得整理素材库最重要的不是快，而是不要把记忆弄丢。</p>
+
+  <div class="soft-panel flow-list">
+    <h2 id="整理流程怎么跑起来"><a href="#整理流程怎么跑起来" class="headerlink" title="整理流程怎么跑起来"></a>整理流程怎么跑起来</h2>
+    <p>这个流程并不是要替我剪片，而是先把素材从混乱里捞出来，做一轮尽量稳定的初筛。</p>
+    <ol>
+      <li>扫描 NAS 里的视频，读取文件信息。</li>
+      <li>从视频中抽取代表性画面，例如开始、中间、结尾各一帧。</li>
+      <li>根据画面给出内容、地点、场景和用途的初步判断。</li>
+      <li>生成更容易读懂的目录和文件名。</li>
+      <li>把把握比较高的素材移动到对应位置，把不确定的内容留在待复核。</li>
+    </ol>
+  </div>
+  <p>这个过程听起来很机械，但真正跑起来的时候，会有一种很奇怪的感觉：那些原本只是一串文件名的视频，开始重新长出内容。</p>
+
+  <h2 id="一个文件名的变化"><a href="#一个文件名的变化" class="headerlink" title="一个文件名的变化"></a>一个文件名的变化</h2>
+  <div class="rename-demo">
+    <div class="rename-row">
+      <span class="rename-label">原始文件名</span>
+      <code>dam 2025-02-06 171914.078.MOV</code>
+    </div>
+    <div class="rename-row">
+      <span class="rename-label">整理之后</span>
+      <code>20250206_日本京都_鸟居自动贩卖机_001.MOV</code>
+    </div>
+  </div>
+  <p>它突然就有了时间、地点、画面和用途。以后我要剪京都旅行，不需要再一条一条打开试试看，只要进入对应目录，就能找到寺社、街巷、餐饮、交通、人物、夜景这些素材。</p>
+
+  <div class="result-table">
+    <h2 id="阶段结果"><a href="#阶段结果" class="headerlink" title="阶段结果"></a>阶段结果</h2>
+    <table>
+      <thead>
+        <tr><th>项目</th><th>结果</th></tr>
+      </thead>
+      <tbody>
+        <tr><td>合并范围</td><td><code>· 原素材</code> 与 <code>· 视频素材</code></td></tr>
+        <tr><td>新目录</td><td><code>· 素材库</code></td></tr>
+        <tr><td>完成移动/改名</td><td>7473 个视频</td></tr>
+        <tr><td>文件大小校验</td><td>7473 个全部通过</td></tr>
+        <tr><td>删除文件</td><td>0</td></tr>
+        <tr><td>覆盖文件</td><td>0</td></tr>
+        <tr><td>同名冲突</td><td>0</td></tr>
+      </tbody>
+    </table>
+  </div>
+  <p class="pull-quote">整理之后，我最喜欢的并不是数字，而是素材重新变得可被寻找。</p>
+
+  <div class="category-grid">
+    <h2 id="分类后的世界"><a href="#分类后的世界" class="headerlink" title="分类后的世界"></a>分类后的世界</h2>
+    <ul>
+      <li><strong>旅行记录</strong>：美国、日本、京都、中国城市与景点。</li>
+      <li><strong>户外素材</strong>：外景 B-roll、街拍、Citywalk、徒步、无人机、城市延时。</li>
+      <li><strong>生活记录</strong>：阳台植物、咖啡、美食、婚礼、朋友聚会、节日、汽车相关。</li>
+      <li><strong>居家素材</strong>：厨房、咖啡、书房、卫生间、窗外日出、居家 B-roll。</li>
+      <li><strong>剪辑工程</strong>：Final Cut Pro 原始媒体与转码媒体。</li>
+      <li><strong>氛围与转场</strong>：氛围素材、趣味素材、片头片段。</li>
+      <li><strong>待复核</strong>：暂时不能确定内容、地点或用途的素材。</li>
+    </ul>
+  </div>
+  <p>以前想剪一个“京都”的片子，第一步不是打开剪辑软件，而是在一堆目录里迷路。现在我可以直接去看京都、伏见稻荷、寺社庭院、餐厅、街巷、交通这些目录。它们不是最终作品，但它们已经从“文件堆”变成了“素材语言”。</p>
+
+  <h2 id="整理后的文件结构"><a href="#整理后的文件结构" class="headerlink" title="整理后的文件结构"></a>整理后的文件结构</h2>
+  <p>为了让这个整理结果不是停留在概念里，我把素材库的结构树放在这里。它表达的是文件应该怎么被找到：先看素材类型，再进入地点、内容或项目状态。</p>
+  <pre class="tree-block"><code>· 素材库/
+├── 01_实拍素材/
+│   ├── 中国/
+│   │   ├── 武汉/
+│   │   │   ├── 家/
+│   │   │   ├── 昙华林/
+│   │   │   ├── 东湖/
+│   │   │   └── 地点待确认/
+│   │   ├── 襄阳/
+│   │   └── 城市待确认/
+│   ├── 日本/
+│   │   ├── 京都/
+│   │   │   ├── 伏见稻荷大社/
+│   │   │   ├── 寺社古街/
+│   │   │   ├── 餐饮店铺/
+│   │   │   └── 地点待确认/
+│   │   ├── 大阪/
+│   │   ├── 东京/
+│   │   └── 城市待确认/
+│   ├── 美国/
+│   │   ├── 旧金山/
+│   │   ├── 洛杉矶/
+│   │   └── 城市待确认/
+│   └── 国家待确认/
+├── 02_创作资产/
+│   ├── B-roll通用/
+│   ├── 转场素材/
+│   ├── 氛围素材/
+│   ├── 下载参考/
+│   ├── 配乐/
+│   └── 音效环境声/
+├── 03_项目工程与导出/
+│   ├── FCP/
+│   │   ├── Vlog34/
+│   │   │   ├── 原始媒体/
+│   │   │   └── 转码媒体/
+│   │   └── 户外Vlog/
+│   ├── 达芬奇/
+│   ├── 剪映/
+│   ├── 导出成片/
+│   └── 代理文件/
+├── 04_录屏教程与游戏/
+│   ├── 软件界面/
+│   ├── 教程演示/
+│   ├── 网页录制/
+│   └── 游戏录像/
+└── 99_待复核/
+    ├── 地点待确认/
+    ├── 内容待确认/
+    ├── DAM相机待看/
+    ├── iPhone原片待看/
+    ├── Blackmagic相机待看/
+    ├── 黑场或异常素材/
+    └── 重复疑似/</code></pre>
+  <p class="tree-note">这棵树不是为了炫耀分类有多细，而是为了让以后剪片时可以顺着路径找素材：真实拍摄先找地点，通用素材进创作资产，工程文件和导出成片单独管理，拿不准的内容先留在待复核。</p>
+
+  <div class="resolution-table">
+    <h2 id="抽帧分辨率实验"><a href="#抽帧分辨率实验" class="headerlink" title="抽帧分辨率实验"></a>抽帧分辨率实验</h2>
+    <p>中间我还做了一个抽帧分辨率实验。样本是 30 个视频，每个视频取开始后 3 秒、中间、结束前 3 秒三帧，分别测试 720px、1080px、1440px。</p>
+    <table>
+      <thead>
+        <tr><th>分辨率</th><th>判断效果</th><th>结论</th></tr>
+      </thead>
+      <tbody>
+        <tr><td>720px</td><td>大场景够用，细节和文字偏弱</td><td>适合低风险批量扫</td></tr>
+        <tr><td>1080px</td><td>地点、店招、菜单、小物件更稳</td><td>作为默认方案</td></tr>
+        <tr><td>1440px</td><td>细节略好，但收益有限</td><td>只在特殊 OCR 场景升级</td></tr>
+      </tbody>
+    </table>
+  </div>
+  <p>最后的策略是：默认使用 <strong>1080px 三帧</strong>。这一步不需要把每一个视频都当成电影来审，它只负责回答几个很朴素的问题：这个视频大概是什么、在哪里、能放到哪个素材箱里。等真正剪片的时候，我再根据主题去挑选节奏、情绪和故事。</p>
+
+  <h2 id="剪辑的开始"><a href="#剪辑的开始" class="headerlink" title="剪辑的开始"></a>剪辑的开始</h2>
+  <p>这件事让我重新想了一下“剪辑”的开始。</p>
+  <p>剪辑不一定是从时间线开始的。它可能从整理开始，从命名开始，从让素材重新被看见开始。过去我总觉得自己拍了很多东西，但没有剪出来就像没有完成。现在我觉得，那些素材其实没有消失，只是还没有被归类到一个能再次调用的位置。</p>
+  <p>这次整理帮我做的，是把这些散落的画面重新铺开。</p>
+  <p>它没有替我决定哪一段画面更有意义，也没有替我完成故事。它只是把 7473 段视频从混乱里拉出来，按时间、地点、内容和用途重新放好。剩下的部分，还是要由我自己去看、去选、去剪、去讲。</p>
+  <blockquote class="closing-note">
+    <p>下一步，我想从整理好的素材库里选一个主题，真正剪出一条 vlog。也许是京都，也许是武汉街巷，也许是阳台植物，也许只是一些咖啡、窗外、桌面和路上的碎片。素材库已经开始有秩序了，接下来就该让这些画面重新动起来。</p>
+  </blockquote>
+</div>
+
+      
+    </div>
+    
+    
+    
+
+    <div>
+        <div style="padding: 10px 0; margin: 20px auto; width: 90%; text-align: center;">
+  <div>2元你买不到吃亏、6元买不到上当！</div>
+  <button id="rewardButton" disable="enable" onclick="var qr = document.getElementById('QR'); if (qr.style.display === 'none') {qr.style.display='block';} else {qr.style.display='none'}">
+    <span>打赏</span>
+  </button>
+  <div id="QR" style="display: none;">
+
+    
+      <div id="wechat" style="display: inline-block">
+        <img id="wechat_qr" src="/images/wechatpay.png" alt="Tim & Melanie 微信支付"/>
+        <p>微信支付</p>
+      </div>
+    
+
+    
+      <div id="alipay" style="display: inline-block">
+        <img id="alipay_qr" src="/images/alipay.png" alt="Tim & Melanie 支付宝"/>
+        <p>支付宝</p>
+      </div>
+    
+
+    
+
+  </div>
+</div>
+
+      </div>
+    
+
+    
+
+    <footer class="post-footer">
+      
+        <div class="post-tags">
+          
+            <a href="/tags/剪辑/" rel="tag"># 剪辑</a>
+          
+            <a href="/tags/记录/" rel="tag"># 记录</a>
+          
+        </div>
+      
+
+      
+      
+      
+
+      
+        <div class="post-nav">
+          <div class="post-nav-next post-nav-item">
+            
+              <a href="/posts/new-chapter-2026/" rel="next" title="用 Codex 开启新的篇章">
+                <i class="fa fa-chevron-left"></i> 用 Codex 开启新的篇章
+              </a>
+            
+          </div>
+
+          <span class="post-nav-divider"></span>
+
+          <div class="post-nav-prev post-nav-item">
+            
+          </div>
+        </div>
+      
+
+      
+      
+    </footer>
+  </div>
+  
+  
+  
+  </article>
+
+
+
+    <div class="post-spread">
+      
+    </div>
+  </div>
+
+
+          </div>
+          
+
+
+          
+
+  
+
+
+
+        </div>
+        
+          
+  
+  <div class="sidebar-toggle">
+    <div class="sidebar-toggle-line-wrap">
+      <span class="sidebar-toggle-line sidebar-toggle-line-first"></span>
+      <span class="sidebar-toggle-line sidebar-toggle-line-middle"></span>
+      <span class="sidebar-toggle-line sidebar-toggle-line-last"></span>
+    </div>
+  </div>
+
+  <aside id="sidebar" class="sidebar">
+    
+      <div id="sidebar-dimmer"></div>
+    
+    <div class="sidebar-inner">
+
+      
+
+      
+
+      <section class="site-overview-wrap sidebar-panel sidebar-panel-active">
+        <div class="site-overview">
+          <div class="site-author motion-element" itemprop="author" itemscope itemtype="http://schema.org/Person">
+            
+              <img class="site-author-image" itemprop="image"
+                src="/uploads/avatar.png"
+                alt="Tim & Melanie" />
+            
+              <p class="site-author-name" itemprop="name">Tim & Melanie</p>
+              <p class="site-description motion-element" itemprop="description"></p>
+          </div>
+
+          
+            <nav class="site-state motion-element">
+              
+                <div class="site-state-item site-state-posts">
+                
+                  <a href="/archives/">
+                
+                    <span class="site-state-item-count">25</span>
+                    <span class="site-state-item-name">日志</span>
+                  </a>
+                </div>
+              
+
+              
+                
+                
+                <div class="site-state-item site-state-categories">
+                  <a href="/categories/index.html">
+                    <span class="site-state-item-count">1</span>
+                    <span class="site-state-item-name">分类</span>
+                  </a>
+                </div>
+              
+
+              
+                
+                
+                <div class="site-state-item site-state-tags">
+                  <a href="/tags/index.html">
+                    <span class="site-state-item-count">10</span>
+                    <span class="site-state-item-name">标签</span>
+                  </a>
+                </div>
+              
+            </nav>
+          
+
+          
+
+          
+            <div class="links-of-author motion-element">
+                
+                  <span class="links-of-author-item">
+                    <a href="https://github.com/7imLei/7imLei.github.io" target="_blank" title="GitHub">
+                      
+                        <i class="fa fa-fw fa-github"></i></a>
+                  </span>
+                
+                  <span class="links-of-author-item">
+                    <a href="mailto:mercury0717atgmail.com" target="_blank" title="E-Mail">
+                      
+                        <i class="fa fa-fw fa-envelope"></i></a>
+                  </span>
+                
+                  <span class="links-of-author-item">
+                    <a href="https://plus.google.com/u/0/+TimLei" target="_blank" title="Google">
+                      
+                        <i class="fa fa-fw fa-google"></i></a>
+                  </span>
+                
+                  <span class="links-of-author-item">
+                    <a href="https://www.instagram.com/timlei/" target="_blank" title="Instagram">
+                      
+                        <i class="fa fa-fw fa-instagram"></i></a>
+                  </span>
+                
+            </div>
+          
+
+          
+          
+
+          
+          
+
+          
+
+        </div>
+      </section>
+
+      
+
+      
+
+    </div>
+  </aside>
+
+
+        
+      </div>
+    </main>
+
+    <footer id="footer" class="footer">
+      <div class="footer-inner">
+        <div class="copyright">&copy; <span itemprop="copyrightYear">2026</span>
+  <span class="with-love">
+    <i class="fa fa-user"></i>
+  </span>
+  <span class="author" itemprop="copyrightHolder">Tim & Melanie</span>
+
+  
+    <span class="post-meta-divider">|</span>
+    <span class="post-meta-item-icon">
+      <i class="fa fa-area-chart"></i>
+    </span>
+    
+    <span title="站点总字数">43k</span>
+  
+
+  
+    <span class="post-meta-divider">|</span>
+    <span class="post-meta-item-icon">
+      <i class="fa fa-coffee"></i>
+    </span>
+    
+    <span title="站点总阅读次数">1:11</span>
+  
+</div>
+
+
+  <!--<div class="powered-by">由 <a class="theme-link" target="_blank" href="https://hexo.io">Hexo</a> 强力驱动</div>-->
+
+
+
+  <!--<span class="post-meta-divider">|</span>-->
+
+
+
+  <!--<div class="theme-info">主题 &mdash; <a class="theme-link" target="_blank" href="https://github.com/theme-next/hexo-theme-next">NexT.Mist</a> v6.0.0</div>-->
+
+
+
+
+
+
+        
+
+
+
+
+
+
+
+        
+      </div>
+    </footer>
+
+    
+      <div class="back-to-top">
+        <i class="fa fa-arrow-up"></i>
+        
+      </div>
+    
+
+    
+
+  </div>
+
+  
+
+<script type="text/javascript">
+  if (Object.prototype.toString.call(window.Promise) !== '[object Function]') {
+    window.Promise = null;
+  }
+</script>
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+  
+  
+    <script type="text/javascript" src="//cdn.jsdelivr.net/jquery/2.1.3/jquery.min.js"></script>
+  
+
+  
+  
+    <script type="text/javascript" src="//cdn.jsdelivr.net/velocity/1.2.3/velocity.min.js"></script>
+  
+
+  
+  
+    <script type="text/javascript" src="//cdn.jsdelivr.net/velocity/1.2.3/velocity.ui.min.js"></script>
+  
+
+
+  
+
+
+  <script type="text/javascript" src="/js/src/utils.js?v=6.0.0"></script>
+
+  <script type="text/javascript" src="/js/src/motion.js?v=6.0.0"></script>
+
+
+
+  
+  
+
+  
+  <script type="text/javascript" src="/js/src/scrollspy.js?v=6.0.0"></script>
+<script type="text/javascript" src="/js/src/post-details.js?v=6.0.0"></script>
+
+
+
+  
+
+
+  <script type="text/javascript" src="/js/src/bootstrap.js?v=6.0.0"></script>
+
+
+
+  
+
+
+  
+
+
+
+
+	
+
+
+
+
+
+  
+
+
+
+
+
+  
+
+
+
+
+
+
+
+
+
+
+
+
+  
+
+  <script type="text/javascript">
+    // Popup Window;
+    var isfetched = false;
+    var isXml = true;
+    // Search DB path;
+    var search_path = "search.xml";
+    if (search_path.length === 0) {
+      search_path = "search.xml";
+    } else if (/json$/i.test(search_path)) {
+      isXml = false;
+    }
+    var path = "/" + search_path;
+    // monitor main search box;
+
+    var onPopupClose = function (e) {
+      $('.popup').hide();
+      $('#local-search-input').val('');
+      $('.search-result-list').remove();
+      $('#no-result').remove();
+      $(".local-search-pop-overlay").remove();
+      $('body').css('overflow', '');
+    }
+
+    function proceedsearch() {
+      $("body")
+        .append('<div class="search-popup-overlay local-search-pop-overlay"></div>')
+        .css('overflow', 'hidden');
+      $('.search-popup-overlay').click(onPopupClose);
+      $('.popup').toggle();
+      var $localSearchInput = $('#local-search-input');
+      $localSearchInput.attr("autocapitalize", "none");
+      $localSearchInput.attr("autocorrect", "off");
+      $localSearchInput.focus();
+    }
+
+    // search function;
+    var searchFunc = function(path, search_id, content_id) {
+      'use strict';
+
+      // start loading animation
+      $("body")
+        .append('<div class="search-popup-overlay local-search-pop-overlay">' +
+          '<div id="search-loading-icon">' +
+          '<i class="fa fa-spinner fa-pulse fa-5x fa-fw"></i>' +
+          '</div>' +
+          '</div>')
+        .css('overflow', 'hidden');
+      $("#search-loading-icon").css('margin', '20% auto 0 auto').css('text-align', 'center');
+
+      $.ajax({
+        url: path,
+        dataType: isXml ? "xml" : "json",
+        async: true,
+        success: function(res) {
+          // get the contents from search data
+          isfetched = true;
+          $('.popup').detach().appendTo('.header-inner');
+          var datas = isXml ? $("entry", res).map(function() {
+            return {
+              title: $("title", this).text(),
+              content: $("content",this).text(),
+              url: $("url" , this).text()
+            };
+          }).get() : res;
+          var input = document.getElementById(search_id);
+          var resultContent = document.getElementById(content_id);
+          var inputEventFunction = function() {
+            var searchText = input.value.trim().toLowerCase();
+            var keywords = searchText.split(/[\s\-]+/);
+            if (keywords.length > 1) {
+              keywords.push(searchText);
+            }
+            var resultItems = [];
+            if (searchText.length > 0) {
+              // perform local searching
+              datas.forEach(function(data) {
+                var isMatch = false;
+                var hitCount = 0;
+                var searchTextCount = 0;
+                var title = data.title.trim();
+                var titleInLowerCase = title.toLowerCase();
+                var content = data.content.trim().replace(/<[^>]+>/g,"");
+                var contentInLowerCase = content.toLowerCase();
+                var articleUrl = decodeURIComponent(data.url);
+                var indexOfTitle = [];
+                var indexOfContent = [];
+                // only match articles with not empty titles
+                if(title != '') {
+                  keywords.forEach(function(keyword) {
+                    function getIndexByWord(word, text, caseSensitive) {
+                      var wordLen = word.length;
+                      if (wordLen === 0) {
+                        return [];
+                      }
+                      var startPosition = 0, position = [], index = [];
+                      if (!caseSensitive) {
+                        text = text.toLowerCase();
+                        word = word.toLowerCase();
+                      }
+                      while ((position = text.indexOf(word, startPosition)) > -1) {
+                        index.push({position: position, word: word});
+                        startPosition = position + wordLen;
+                      }
+                      return index;
+                    }
+
+                    indexOfTitle = indexOfTitle.concat(getIndexByWord(keyword, titleInLowerCase, false));
+                    indexOfContent = indexOfContent.concat(getIndexByWord(keyword, contentInLowerCase, false));
+                  });
+                  if (indexOfTitle.length > 0 || indexOfContent.length > 0) {
+                    isMatch = true;
+                    hitCount = indexOfTitle.length + indexOfContent.length;
+                  }
+                }
+
+                // show search results
+
+                if (isMatch) {
+                  // sort index by position of keyword
+
+                  [indexOfTitle, indexOfContent].forEach(function (index) {
+                    index.sort(function (itemLeft, itemRight) {
+                      if (itemRight.position !== itemLeft.position) {
+                        return itemRight.position - itemLeft.position;
+                      } else {
+                        return itemLeft.word.length - itemRight.word.length;
+                      }
+                    });
+                  });
+
+                  // merge hits into slices
+
+                  function mergeIntoSlice(text, start, end, index) {
+                    var item = index[index.length - 1];
+                    var position = item.position;
+                    var word = item.word;
+                    var hits = [];
+                    var searchTextCountInSlice = 0;
+                    while (position + word.length <= end && index.length != 0) {
+                      if (word === searchText) {
+                        searchTextCountInSlice++;
+                      }
+                      hits.push({position: position, length: word.length});
+                      var wordEnd = position + word.length;
+
+                      // move to next position of hit
+
+                      index.pop();
+                      while (index.length != 0) {
+                        item = index[index.length - 1];
+                        position = item.position;
+                        word = item.word;
+                        if (wordEnd > position) {
+                          index.pop();
+                        } else {
+                          break;
+                        }
+                      }
+                    }
+                    searchTextCount += searchTextCountInSlice;
+                    return {
+                      hits: hits,
+                      start: start,
+                      end: end,
+                      searchTextCount: searchTextCountInSlice
+                    };
+                  }
+
+                  var slicesOfTitle = [];
+                  if (indexOfTitle.length != 0) {
+                    slicesOfTitle.push(mergeIntoSlice(title, 0, title.length, indexOfTitle));
+                  }
+
+                  var slicesOfContent = [];
+                  while (indexOfContent.length != 0) {
+                    var item = indexOfContent[indexOfContent.length - 1];
+                    var position = item.position;
+                    var word = item.word;
+                    // cut out 100 characters
+                    var start = position - 20;
+                    var end = position + 80;
+                    if(start < 0){
+                      start = 0;
+                    }
+                    if (end < position + word.length) {
+                      end = position + word.length;
+                    }
+                    if(end > content.length){
+                      end = content.length;
+                    }
+                    slicesOfContent.push(mergeIntoSlice(content, start, end, indexOfContent));
+                  }
+
+                  // sort slices in content by search text's count and hits' count
+
+                  slicesOfContent.sort(function (sliceLeft, sliceRight) {
+                    if (sliceLeft.searchTextCount !== sliceRight.searchTextCount) {
+                      return sliceRight.searchTextCount - sliceLeft.searchTextCount;
+                    } else if (sliceLeft.hits.length !== sliceRight.hits.length) {
+                      return sliceRight.hits.length - sliceLeft.hits.length;
+                    } else {
+                      return sliceLeft.start - sliceRight.start;
+                    }
+                  });
+
+                  // select top N slices in content
+
+                  var upperBound = parseInt('1');
+                  if (upperBound >= 0) {
+                    slicesOfContent = slicesOfContent.slice(0, upperBound);
+                  }
+
+                  // highlight title and content
+
+                  function highlightKeyword(text, slice) {
+                    var result = '';
+                    var prevEnd = slice.start;
+                    slice.hits.forEach(function (hit) {
+                      result += text.substring(prevEnd, hit.position);
+                      var end = hit.position + hit.length;
+                      result += '<b class="search-keyword">' + text.substring(hit.position, end) + '</b>';
+                      prevEnd = end;
+                    });
+                    result += text.substring(prevEnd, slice.end);
+                    return result;
+                  }
+
+                  var resultItem = '';
+
+                  if (slicesOfTitle.length != 0) {
+                    resultItem += "<li><a href='" + articleUrl + "' class='search-result-title'>" + highlightKeyword(title, slicesOfTitle[0]) + "</a>";
+                  } else {
+                    resultItem += "<li><a href='" + articleUrl + "' class='search-result-title'>" + title + "</a>";
+                  }
+
+                  slicesOfContent.forEach(function (slice) {
+                    resultItem += "<a href='" + articleUrl + "'>" +
+                      "<p class=\"search-result\">" + highlightKeyword(content, slice) +
+                      "...</p>" + "</a>";
+                  });
+
+                  resultItem += "</li>";
+                  resultItems.push({
+                    item: resultItem,
+                    searchTextCount: searchTextCount,
+                    hitCount: hitCount,
+                    id: resultItems.length
+                  });
+                }
+              })
+            };
+            if (keywords.length === 1 && keywords[0] === "") {
+              resultContent.innerHTML = '<div id="no-result"><i class="fa fa-search fa-5x" /></div>'
+            } else if (resultItems.length === 0) {
+              resultContent.innerHTML = '<div id="no-result"><i class="fa fa-frown-o fa-5x" /></div>'
+            } else {
+              resultItems.sort(function (resultLeft, resultRight) {
+                if (resultLeft.searchTextCount !== resultRight.searchTextCount) {
+                  return resultRight.searchTextCount - resultLeft.searchTextCount;
+                } else if (resultLeft.hitCount !== resultRight.hitCount) {
+                  return resultRight.hitCount - resultLeft.hitCount;
+                } else {
+                  return resultRight.id - resultLeft.id;
+                }
+              });
+              var searchResultList = '<ul class=\"search-result-list\">';
+              resultItems.forEach(function (result) {
+                searchResultList += result.item;
+              })
+              searchResultList += "</ul>";
+              resultContent.innerHTML = searchResultList;
+            }
+          }
+
+          if ('auto' === 'auto') {
+            input.addEventListener('input', inputEventFunction);
+          } else {
+            $('.search-icon').click(inputEventFunction);
+            input.addEventListener('keypress', function (event) {
+              if (event.keyCode === 13) {
+                inputEventFunction();
+              }
+            });
+          }
+
+          // remove loading animation
+          $(".local-search-pop-overlay").remove();
+          $('body').css('overflow', '');
+
+          proceedsearch();
+        }
+      });
+    }
+
+    // handle and trigger popup window;
+    $('.popup-trigger').click(function(e) {
+      e.stopPropagation();
+      if (isfetched === false) {
+        searchFunc(path, 'local-search-input', 'local-search-result');
+      } else {
+        proceedsearch();
+      };
+    });
+
+    $('.popup-btn-close').click(onPopupClose);
+    $('.popup').click(function(e){
+      e.stopPropagation();
+    });
+    $(document).on('keyup', function (event) {
+      var shouldDismissSearchPopup = event.which === 27 &&
+        $('.search-popup').is(':visible');
+      if (shouldDismissSearchPopup) {
+        onPopupClose();
+      }
+    });
+  </script>
+
+
+
+
+
+  
+
+  
+
+  
+
+  
+  
+
+  
+
+  
+
+  
+
+</body>
+</html>
+<!-- 页面点击小红心 -->
+<script type="text/javascript" src="/js/src/love.js"></script>
+
+
