@@ -321,6 +321,156 @@
   
   
   <div class="post-block">
+    <link itemprop="mainEntityOfPage" href="https://www.qqandd.com/posts/home-network-optimization-2026/">
+
+    <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
+      <meta itemprop="name" content="Tim & Melanie">
+      <meta itemprop="description" content="">
+      <meta itemprop="image" content="/uploads/avatar.png">
+    </span>
+
+    <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
+      <meta itemprop="name" content="QQANDD Home">
+    </span>
+
+    
+      <header class="post-header">
+
+        
+        
+          <h1 class="post-title" itemprop="name headline">
+                
+                <a class="post-title-link" href="/posts/home-network-optimization-2026/" itemprop="url">家庭网络搭建之旅：NAS 挂旁路由、ZeroTier 、OpenClash优化</a></h1>
+        
+
+        <div class="post-meta">
+          <span class="post-time">
+            
+              <span class="post-meta-item-icon">
+                <i class="fa fa-calendar-o"></i>
+              </span>
+              
+                <span class="post-meta-item-text">发表于</span>
+              
+              <time title="创建于" itemprop="dateCreated datePublished" datetime="2026-06-04T22:30:00+08:00">2026-06-04</time>
+            
+
+            
+
+            
+          </span>
+
+          
+
+          
+            
+          
+
+          
+          
+
+          
+
+          
+            <div class="post-wordcount">
+              
+
+              
+                <span class="post-meta-item-icon">
+                  <i class="fa fa-file-word-o"></i>
+                </span>
+                
+                  <span class="post-meta-item-text">字数统计&#58;</span>
+                
+                <span title="字数统计">2100</span>
+              
+
+              
+                <span class="post-meta-divider">|</span>
+              
+
+              
+                <span class="post-meta-item-icon">
+                  <i class="fa fa-clock-o"></i>
+                </span>
+                
+                  <span class="post-meta-item-text">阅读时长 &asymp;</span>
+                
+                <span title="阅读时长">4 mins.</span>
+              
+            </div>
+          
+
+          
+
+        </div>
+      </header>
+    
+
+    
+    
+    
+    <div class="post-body" itemprop="articleBody">
+
+      
+      
+
+      
+        
+          
+            <style>
+  .home-network-excerpt { border-left: 4px solid #2563eb; background: #eff6ff; padding: 16px 18px; margin-bottom: 18px; }
+  .home-network-excerpt p { margin: 0; color: #1f3f75; }
+  .home-network-mini-metrics { display: grid; grid-template-columns: repeat(3, minmax(0, 1fr)); gap: 10px; margin: 18px 0; }
+  .home-network-mini-metrics span { border: 1px solid #d8e3ee; border-radius: 6px; padding: 12px 10px; text-align: center; background: #fff; color: #64748b; }
+  .home-network-mini-metrics strong { display: block; color: #2563eb; font-size: 1.35em; margin-bottom: 4px; }
+  @media (max-width: 767px) { .home-network-mini-metrics { grid-template-columns: 1fr; } }
+</style>
+<div class="home-network-excerpt"><p>本次记录为了证实家里网络确实有问题，通过Codex自动优化：设备地址、路由路径、解析结果和测速值。调整目标是让本地访问走 Wi-Fi 与旁路由，让 ZeroTier 只承担外网回家访问，让 OpenClash 只处理公网代理。效果非常丝滑，顺便发个博客记录。</p></div>
+<p>192.168.1.7 是运行在 NAS 上的 OpenWrt 虚拟旁路由。Wi-Fi 路由的内网地址是 192.168.3.1，核心 NAS 地址是 192.168.1.111、192.168.1.112、192.168.1.113。Mac 当前在 Wi-Fi 网段，地址是 192.168.3.253。</p>
+<div class="home-network-mini-metrics">
+  <span><strong>192.168.3.1</strong>本地网络的复杂性多重网关，实际的网关192.168.1.1<br></span>
+  <span><strong>4.77 ms</strong>户外代理到 NAS 的平均延迟。</span>
+  <span><strong>0%</strong>内网 ping 测试丢包率。</span>
+</div>
+
+          
+        
+      
+
+    </div>
+    
+    
+    
+
+    
+
+    
+
+    
+
+    <footer class="post-footer">
+      
+
+      
+
+      
+
+      
+      
+        <div class="post-eof"></div>
+      
+    </footer>
+  </div>
+  
+  
+  
+  </article>
+  <article class="post post-type-normal" itemscope itemtype="http://schema.org/Article">
+  
+  
+  
+  <div class="post-block">
     <link itemprop="mainEntityOfPage" href="https://www.qqandd.com/posts/ai-video-library-2026/">
 
     <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
@@ -2400,7 +2550,7 @@
                 
                   <a href="/archives/">
                 
-                    <span class="site-state-item-count">25</span>
+                    <span class="site-state-item-count">26</span>
                     <span class="site-state-item-name">日志</span>
                   </a>
                 </div>
@@ -2996,5 +3146,4 @@
 </html>
 <!-- 页面点击小红心 -->
 <script type="text/javascript" src="/js/src/love.js"></script>
-
 
