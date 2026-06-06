@@ -36,6 +36,11 @@ button {
   cursor: pointer;
 }
 
+button:disabled {
+  cursor: not-allowed;
+  opacity: .55;
+}
+
 .app-shell {
   width: min(1440px, 100%);
   margin: 0 auto;
@@ -71,9 +76,19 @@ button {
 
 .top-actions {
   display: flex;
+  align-items: center;
   gap: 10px;
   flex-wrap: wrap;
   justify-content: flex-end;
+}
+
+.user-chip {
+  min-height: 34px;
+  padding: 7px 11px;
+  color: var(--muted);
+  background: var(--surface-2);
+  border: 1px solid var(--line);
+  border-radius: 8px;
 }
 
 .layout {
@@ -151,6 +166,32 @@ button {
   background: #fff;
   border: 1px solid var(--line);
   border-radius: 8px;
+}
+
+.login-form {
+  display: grid;
+}
+
+.account-info {
+  display: grid;
+  gap: 8px;
+}
+
+.account-info span {
+  color: var(--muted);
+  font-size: 13px;
+}
+
+.account-info strong {
+  font-size: 20px;
+}
+
+.login-message {
+  min-height: 20px;
+  margin: 10px 0 0;
+  color: var(--muted);
+  font-size: 13px;
+  line-height: 1.45;
 }
 
 .filter-block {

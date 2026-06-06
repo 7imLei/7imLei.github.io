@@ -1,5 +1,7 @@
 const QUESTIONS = window.QUESTION_BANK || [];
 const STORAGE_KEY = "powerTraderQuizProgressV1";
+const USERS_KEY = "powerTraderQuizUsersV1";
+const ACTIVE_USER_KEY = "powerTraderQuizActiveUserV1";
 
 const els = {
   modeBtns: Array.from(document.querySelectorAll(".mode-btn")),
@@ -23,6 +25,15 @@ const els = {
   finishBtn: document.getElementById("finishBtn"),
   reviewWrongBtn: document.getElementById("reviewWrongBtn"),
   resetProgressBtn: document.getElementById("resetProgressBtn"),
+  activeUserLabel: document.getElementById("activeUserLabel"),
+  loginForm: document.getElementById("loginForm"),
+  nicknameInput: document.getElementById("nicknameInput"),
+  challengeInput: document.getElementById("challengeInput"),
+  answerInput: document.getElementById("answerInput"),
+  loginMessage: document.getElementById("loginMessage"),
+  accountInfo: document.getElementById("accountInfo"),
+  accountName: document.getElementById("accountName"),
+  logoutBtn: document.getElementById("logoutBtn"),
 };
 
 let activeMode = "practice";
@@ -37,19 +48,181 @@ let session = {
   finished: false,
 };
 
-const progress = loadProgress();
+let users = loadUsers();
+let activeUserId = loadActiveUserId();
+let progress = getActiveProgress();
 
-function loadProgress() {
+function loadJson(key, fallback) {
   try {
-    return JSON.parse(localStorage.getItem(STORAGE_KEY)) || {};
+    return JSON.parse(localStorage.getItem(key)) || fallback;
   } catch {
-    return {};
+    return fallback;
   }
 }
 
+function loadUsers() {
+  return loadJson(USERS_KEY, {});
+}
+
+function saveUsers() {
+  localStorage.setItem(USERS_KEY, JSON.stringify(users));
+}
+
+function loadActiveUserId() {
+  const userId = localStorage.getItem(ACTIVE_USER_KEY);
+  return userId && users[userId] ? userId : "";
+}
+
+function getActiveProgress() {
+  return activeUserId && users[activeUserId] ? users[activeUserId].progress || {} : {};
+}
+
 function saveProgress() {
-  localStorage.setItem(STORAGE_KEY, JSON.stringify(progress));
+  if (!activeUserId || !users[activeUserId]) return;
+  users[activeUserId].progress = progress;
+  saveUsers();
   renderStats();
+}
+
+function normalizeNickname(value) {
+  return String(value || "").trim();
+}
+
+function userIdFromNickname(value) {
+  return normalizeNickname(value).toLowerCase();
+}
+
+function normalizeAnswer(value) {
+  return String(value || "").trim().toLowerCase();
+}
+
+function hashAnswer(value) {
+  let hash = 2166136261;
+  const text = normalizeAnswer(value);
+  for (let index = 0; index < text.length; index += 1) {
+    hash ^= text.charCodeAt(index);
+    hash = Math.imul(hash, 16777619);
+  }
+  return String(hash >>> 0);
+}
+
+function getLegacyProgress() {
+  return loadJson(STORAGE_KEY, {});
+}
+
+function applyActiveUser(userId) {
+  activeUserId = userId;
+  progress = getActiveProgress();
+  if (userId) localStorage.setItem(ACTIVE_USER_KEY, userId);
+  else localStorage.removeItem(ACTIVE_USER_KEY);
+  stopTimer();
+  session = {
+    mode: "practice",
+    queue: [],
+    index: 0,
+    answers: {},
+    submitted: {},
+    startedAt: null,
+    finished: false,
+  };
+  els.summaryPanel.hidden = true;
+  renderAccount();
+  renderStats();
+  renderQuestionShell();
+}
+
+function renderAccount() {
+  const user = activeUserId ? users[activeUserId] : null;
+  const loggedIn = Boolean(user);
+  els.activeUserLabel.textContent = loggedIn ? `当前：${user.nickname}` : "未登录";
+  els.loginForm.hidden = loggedIn;
+  els.accountInfo.hidden = !loggedIn;
+  els.accountName.textContent = loggedIn ? user.nickname : "未登录";
+  els.startBtn.disabled = !loggedIn;
+  els.reviewWrongBtn.disabled = !loggedIn;
+  els.resetProgressBtn.disabled = !loggedIn;
+  if (loggedIn) {
+    els.loginMessage.textContent = "答题记录会保存到这个账户。";
+  } else {
+    updateLoginPrompt();
+  }
+}
+
+function updateLoginPrompt() {
+  if (activeUserId) return;
+  const userId = userIdFromNickname(els.nicknameInput.value);
+  const user = users[userId];
+  if (user?.question && user?.answerHash) {
+    els.challengeInput.value = user.question;
+    els.challengeInput.disabled = true;
+    els.challengeInput.dataset.lockedFor = userId;
+    els.loginMessage.textContent = "回答上面的问题即可登录。";
+    return;
+  }
+  if (els.challengeInput.dataset.lockedFor) {
+    els.challengeInput.value = "";
+    delete els.challengeInput.dataset.lockedFor;
+  }
+  els.challengeInput.disabled = false;
+  els.loginMessage.textContent = "新账户先设置登录问题和答案；已有账户输入昵称后会显示问题。";
+}
+
+function loginAccount(event) {
+  event.preventDefault();
+  const nickname = normalizeNickname(els.nicknameInput.value);
+  const question = String(els.challengeInput.value || "").trim();
+  const answer = normalizeAnswer(els.answerInput.value);
+  const userId = userIdFromNickname(nickname);
+
+  if (!nickname || !answer) {
+    els.loginMessage.textContent = "昵称和答案都要填写。";
+    return;
+  }
+  if (nickname.length > 20 || question.length > 40 || answer.length > 32) {
+    els.loginMessage.textContent = "昵称最多 20 个字，问题最多 40 个字，答案最多 32 个字。";
+    return;
+  }
+
+  const answerHash = hashAnswer(answer);
+  if (users[userId]?.answerHash && users[userId].answerHash !== answerHash) {
+    els.loginMessage.textContent = "答案不对，请重新输入。";
+    return;
+  }
+
+  if (!users[userId]) {
+    if (!question) {
+      els.loginMessage.textContent = "新账户要先设置一个登录问题。";
+      return;
+    }
+    const legacyProgress = getLegacyProgress();
+    users[userId] = {
+      nickname,
+      question,
+      answerHash,
+      progress: Object.keys(legacyProgress).length ? legacyProgress : {},
+      createdAt: Date.now(),
+    };
+    saveUsers();
+  } else if (!users[userId].answerHash) {
+    if (!question) {
+      els.loginMessage.textContent = "这个账户需要先补一个登录问题。";
+      return;
+    }
+    users[userId].question = question;
+    users[userId].answerHash = answerHash;
+    saveUsers();
+  }
+
+  els.nicknameInput.value = "";
+  els.challengeInput.value = "";
+  els.challengeInput.disabled = false;
+  delete els.challengeInput.dataset.lockedFor;
+  els.answerInput.value = "";
+  applyActiveUser(userId);
+}
+
+function logoutAccount() {
+  applyActiveUser("");
 }
 
 function selectedValues(name) {
@@ -112,6 +285,11 @@ function buildQueue(mode) {
 }
 
 function startSession(mode = activeMode) {
+  if (!activeUserId) {
+    renderQuestionShell();
+    els.loginMessage.textContent = "先登录账户，再开始刷题。";
+    return;
+  }
   const queue = buildQueue(mode);
   if (!queue.length) {
     els.questionPanel.className = "question-panel empty";
@@ -136,6 +314,21 @@ function startSession(mode = activeMode) {
       els.sessionLabel.scrollIntoView({ behavior: "smooth", block: "start" });
     });
   }
+}
+
+function renderQuestionShell() {
+  els.questionPanel.className = "question-panel empty";
+  els.questionPanel.innerHTML = activeUserId
+    ? `<div class="empty-state"><h2>选择模式后开始。</h2><p>当前账户的答题记录会单独保存。</p></div>`
+    : `<div class="empty-state"><h2>先登录账户，再开始刷题。</h2><p>输入昵称并答对自己的登录问题后，每个人会看到自己的题库记录。</p></div>`;
+  els.sessionLabel.textContent = activeUserId ? "未开始" : "未登录";
+  els.sessionTitle.textContent = activeUserId ? "选择模式后开始" : "登录后开始";
+  els.progressText.textContent = "0 / 0";
+  els.timer.textContent = "00:00";
+  els.prevBtn.disabled = true;
+  els.nextBtn.disabled = true;
+  els.submitBtn.disabled = true;
+  els.finishBtn.style.display = "none";
 }
 
 function currentQuestion() {
@@ -195,67 +388,110 @@ function compactOptionText(text) {
   return text.length > 48 ? `${text.slice(0, 48)}...` : text;
 }
 
-function buildMemoryHint(question, picked = []) {
-  const pickedKeys = picked.length ? picked.slice().sort().join("") : "未作答";
-  const correctKeys = answerKey(question);
+function buildMemoryHint(question) {
   const correctText = question.answer.map((key) => `${key}、${compactOptionText(optionText(question, key))}`).join("；");
-  const pickedText = picked.map((key) => `${key}、${compactOptionText(optionText(question, key))}`).join("；") || "没有选择";
   const content = `${question.question} ${question.options.map((option) => option.text).join(" ")}`;
-  const topicThinking = {
-    "注册准入": "先判断题目在问准入、变更还是材料。准入看资格和边界，变更看谁的信息发生变化，材料看能被平台或机构审查、留痕的内容。",
-    "交易公告与申报": "先抓交易动作：公告是公开规则，申报要按公告时间、价格边界和授权范围执行。越权、绕过审核、系统故障还继续操作，通常不是合规答案。",
-    "中长期交易": "先看交割周期和合同属性。年度、月度、月内属于按周期组织，中长期更重合同约束和风险锁定，不要把现货实时逻辑套进去。",
-    "现货市场": "先分工：交易机构组织市场，调度机构处理安全约束、机组组合和发电计划。现货价格来自供需和网络约束，不是单纯平均或随意报价。",
-    "零售与售电": "先分清电力用户、售电公司、电网企业的责任。零售侧常考合同价格模式，售电公司常考注册、信用、代理用户和变更责任。",
-    "结算与电价": "先找结算依据和价格形成机制。峰谷电价看供需强弱，输配电价看监管周期和价格主管部门，结算单看可查询、可下载、可作为依据。",
-    "调度与安全校核": "先把交易和调度分开。交易能成交不代表一定能执行，安全校核、调峰调频、发电计划通常要回到调度和系统安全。",
-    "信息披露与监管": "先问信息给谁看、由谁披露、谁负责实施。公开信息和监管要求强调及时、真实、完整，不是市场主体随意决定。",
-    "需求响应与辅助服务": "先看资源提供的服务类型。需求响应是可调负荷参与市场，辅助服务要看调峰、调频、备用等能力，而不是只看电能量报价。",
-    "综合基础": "先抓题干里的主体、动作、限制词。不要先背选项，先判断这件事在市场流程里应该由谁负责、按什么规则办理。"
+  const topicHints = {
+    "注册准入": {
+      point: "注册准入题记住“材料可核验、流程要留痕、变更要同步”。",
+      example: "例：售电公司信息变化，不能只内部改资料，要向交易机构申请变更。"
+    },
+    "交易公告与申报": {
+      point: "公告看公开规则，申报看时间、价格边界和授权。",
+      example: "例：停复牌申报要按平台要求填日期、原因和附件，不能默认系统自动处理。"
+    },
+    "中长期交易": {
+      point: "中长期交易记“按周期签合同，用合同锁风险”。",
+      example: "例：年度、月度、月内交易都按交割周期组织，不要套现货实时出清逻辑。"
+    },
+    "现货市场": {
+      point: "现货市场记“交易机构管市场，调度机构管安全运行”。",
+      example: "例：信息披露实施偏交易机构，安全校核和发电计划偏调度机构。"
+    },
+    "零售与售电": {
+      point: "零售与售电题先记三类主体：用户、售电公司、电网企业。",
+      example: "例：用户侧看用电和合同，售电公司看代理、信用和披露，电网企业看供电责任。"
+    },
+    "结算与电价": {
+      point: "结算与电价题记“价格来源不同，判断口径不同”。",
+      example: "例：市场价格看出清，输配电价看监管，合同价格看双方约定。"
+    },
+    "调度与安全校核": {
+      point: "调度题记“成交不等于能执行，安全校核是底线”。",
+      example: "例：交易结果出来后，还要看电网约束、调峰调频和发电计划。"
+    },
+    "信息披露与监管": {
+      point: "信息披露题记“及时、真实、完整、按规定格式”。",
+      example: "例：公开信息不能由市场主体随意决定格式和时间，要按监管要求披露。"
+    },
+    "需求响应与辅助服务": {
+      point: "需求响应看可调负荷，辅助服务看调峰、调频、备用能力。",
+      example: "例：削峰填谷属于负荷响应，备用和调频属于系统辅助服务。"
+    },
+    "综合基础": {
+      point: "综合题先记主体、动作、限制词。",
+      example: "例：看到“无需、所有、自动、任何”这类绝对说法，优先核对规则边界。"
+    }
   };
 
   const clues = [];
   if (/负责|承担|机构|主体/.test(content)) {
-    clues.push("这题先抓主语和职责：交易机构偏市场组织、公告和披露；调度机构偏安全校核和运行安排；电网企业偏供电责任、接入和计量。");
+    clues.push({
+      point: "职责题记住三分工：交易机构管市场，调度机构管运行，电网企业管接入和供电。",
+      example: "例：问安全校核多半找调度机构，问信息披露实施多半找交易机构。"
+    });
   }
   if (/工作日|提前|期限|周期|每年|月|日|分钟|小时/.test(content)) {
-    clues.push("遇到时限题，不要孤立背数字，先把动作归类：注册变更、代理购电告知、安全校核、监管报送，各自有固定流程节点。");
+    clues.push({
+      point: "时限题不要单背数字，先记它属于哪类动作。",
+      example: "例：注册变更、代理购电告知、监管报送分别对应自己的固定办理节点。"
+    });
   }
   if (/价格|电价|结算|费用|偏差|均价|峰|谷|出清/.test(content)) {
-    clues.push("价格和结算题先判断是市场形成、政府监管还是合同约定。市场形成看供需和出清，监管价格看主管部门和周期，合同约定看双方约束。");
+    clues.push({
+      point: "价格题记三来源：市场出清、政府监管、合同约定。",
+      example: "例：峰谷和出清看市场供需，输配电价看监管，固定价格看合同。"
+    });
   }
   if (/注册|准入|资质|营业执照|信用|承诺|变更/.test(content)) {
-    clues.push("注册资质题优先选择可核验、可公示、可追责的材料或流程；“自动获得”“先进入后整改”“只协商即可”这类跳流程表述要谨慎。");
+    clues.push({
+      point: "注册资质题记“可核验、可公示、可追责”。",
+      example: "例：营业执照、信用承诺、资质材料都要能审查留痕；“先进入后整改”通常不对。"
+    });
   }
   if (/合规|违规|不合规|真实|授权|审核|故障|限价/.test(content)) {
-    clues.push("合规题先看三条线：是否真实、是否授权、是否在规则边界内。越过授权、突破限价、缺少审核或故障时强行操作，通常应排除。");
+    clues.push({
+      point: "合规题记三条线：真实、授权、规则边界。",
+      example: "例：越权操作、突破限价、故障时强行申报，基本都要排除。"
+    });
   }
   if (question.type === "multi") {
-    clues.push("多选题不要凑数量。先把明显越权、不可审计、和题干无关的选项划掉，再保留能同时满足主体、流程和边界的选项。");
+    clues.push({
+      point: "多选题记“宁可按规则筛，不靠凑个数”。",
+      example: "例：能同时符合主体、流程、边界的留下，越权或无关的划掉。"
+    });
   }
   if (question.type === "judge") {
-    clues.push("判断题看到“无需、不必、所有、自动、唯一、任何”等绝对词先停一下，再核对它是否真的符合市场流程和责任边界。");
+    clues.push({
+      point: "判断题记“绝对词先警惕”。",
+      example: "例：看到“无需、不必、所有、自动、任何”，先回到规则边界核对。"
+    });
   }
 
-  const contrast = picked.length
-    ? `你选的是 ${pickedKeys}（${pickedText}），正确是 ${correctKeys}（${correctText}）。先比较两者的“主体/动作/边界”，错题通常就错在把职责主体或流程节点看混。`
-    : `正确是 ${correctKeys}（${correctText}）。先补上题干里的主体、动作和限制条件，再回到选项判断。`;
-  const thinking = clues.slice(0, 2).join(" ");
+  const hint = clues[0] || topicHints[question.topic] || topicHints["综合基础"];
   return {
-    contrast,
-    method: thinking || topicThinking[question.topic] || topicThinking["综合基础"],
-    memory: `记忆抓手：${question.topic}题不要先背字母，先问“谁负责、按什么流程、有没有越权或跳步骤”。`
+    point: hint.point,
+    example: `${hint.example} 本题记：${correctText}。`
   };
 }
 
-function renderHintHtml(question, picked = []) {
-  const hint = buildMemoryHint(question, picked);
+function renderHintHtml(question) {
+  const hint = buildMemoryHint(question);
   return `
     <div class="memory-hint">
-      <strong>思路提示</strong>
-      <p>${escapeHtml(hint.contrast)}</p>
-      <p>${escapeHtml(hint.method)}</p>
-      <p>${escapeHtml(hint.memory)}</p>
+      <strong>记忆提示</strong>
+      <p><b>记忆点：</b>${escapeHtml(hint.point)}</p>
+      <p><b>例子：</b>${escapeHtml(hint.example)}</p>
     </div>
   `;
 }
@@ -451,12 +687,16 @@ els.modeBtns.forEach((button) => {
 
 els.startBtn.addEventListener("click", () => startSession(activeMode));
 els.reviewWrongBtn.addEventListener("click", () => startSession("wrong"));
+els.loginForm.addEventListener("submit", loginAccount);
+els.nicknameInput.addEventListener("input", updateLoginPrompt);
+els.logoutBtn.addEventListener("click", logoutAccount);
 els.submitBtn.addEventListener("click", submitAnswer);
 els.nextBtn.addEventListener("click", nextQuestion);
 els.prevBtn.addEventListener("click", prevQuestion);
 els.finishBtn.addEventListener("click", finishSession);
 els.resetProgressBtn.addEventListener("click", () => {
-  if (!confirm("确定清空本浏览器的答题记录吗？")) return;
+  if (!activeUserId) return;
+  if (!confirm("确定清空当前账户的答题记录吗？")) return;
   Object.keys(progress).forEach((key) => delete progress[key]);
   saveProgress();
 });
@@ -474,4 +714,6 @@ document.addEventListener("keydown", (event) => {
 });
 
 populateTopics();
+renderAccount();
 renderStats();
+renderQuestionShell();

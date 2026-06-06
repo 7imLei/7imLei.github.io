@@ -15,6 +15,7 @@
         <h1>速刷题库</h1>
       </div>
       <div class="top-actions">
+        <span id="activeUserLabel" class="user-chip">未登录</span>
         <button id="reviewWrongBtn" class="ghost-btn" type="button">错题重练</button>
         <button id="resetProgressBtn" class="ghost-btn danger" type="button">清空记录</button>
       </div>
@@ -22,6 +23,25 @@
 
     <main class="layout">
       <aside class="sidebar" aria-label="练习设置">
+        <section class="panel account-panel">
+          <h2>账户</h2>
+          <form id="loginForm" class="login-form">
+            <label class="field-label" for="nicknameInput">昵称</label>
+            <input id="nicknameInput" class="text-input" type="text" autocomplete="username" maxlength="20" placeholder="输入你的昵称">
+            <label class="field-label" for="challengeInput">登录问题</label>
+            <input id="challengeInput" class="text-input" type="text" maxlength="40" placeholder="例如：我的小猫叫？">
+            <label class="field-label" for="answerInput">答案</label>
+            <input id="answerInput" class="text-input" type="text" maxlength="32" placeholder="输入问题答案">
+            <button id="loginBtn" class="primary-btn" type="submit">登录 / 创建</button>
+          </form>
+          <div id="accountInfo" class="account-info" hidden>
+            <span>当前账户</span>
+            <strong id="accountName">未登录</strong>
+            <button id="logoutBtn" class="ghost-btn" type="button">切换账户</button>
+          </div>
+          <p id="loginMessage" class="login-message"></p>
+        </section>
+
         <section class="panel start-panel">
           <h2>开始</h2>
           <div class="mode-grid">
