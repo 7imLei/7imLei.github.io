@@ -1,0 +1,113 @@
+<!doctype html>
+<html lang="zh-CN">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>电力交易员四级速刷题库</title>
+  <meta name="description" content="电力交易员四级题库与样卷模拟测试，支持随机刷题、模拟考试、错题重练和本地进度保存。">
+  <link rel="stylesheet" href="./styles.css">
+</head>
+<body>
+  <div class="app-shell">
+    <header class="topbar">
+      <div>
+        <p class="eyebrow">电力交易员 · 四级</p>
+        <h1>速刷题库</h1>
+      </div>
+      <div class="top-actions">
+        <button id="reviewWrongBtn" class="ghost-btn" type="button">错题重练</button>
+        <button id="resetProgressBtn" class="ghost-btn danger" type="button">清空记录</button>
+      </div>
+    </header>
+
+    <main class="layout">
+      <aside class="sidebar" aria-label="练习设置">
+        <section class="panel start-panel">
+          <h2>开始</h2>
+          <div class="mode-grid">
+            <button class="mode-btn active" type="button" data-mode="practice">
+              <span>随机练习</span>
+              <small>20 题即时反馈</small>
+            </button>
+            <button class="mode-btn" type="button" data-mode="mock">
+              <span>样卷模拟</span>
+              <small>170 题计分</small>
+            </button>
+            <button class="mode-btn" type="button" data-mode="full">
+              <span>全量刷题</span>
+              <small>按筛选顺序</small>
+            </button>
+          </div>
+          <label class="field-label" for="questionCount">练习题数</label>
+          <input id="questionCount" class="number-input" type="number" min="5" max="200" step="5" value="20">
+          <button id="startBtn" class="primary-btn" type="button">开始刷题</button>
+        </section>
+
+        <section class="panel filter-panel">
+          <h2>筛选</h2>
+          <label class="field-label" for="searchInput">关键词</label>
+          <input id="searchInput" class="text-input" type="search" placeholder="输入：现货、注册、结算...">
+
+          <div class="filter-block">
+            <p class="field-label">来源</p>
+            <label><input type="checkbox" name="source" value="题库" checked> 题库</label>
+            <label><input type="checkbox" name="source" value="样卷" checked> 样卷</label>
+          </div>
+
+          <div class="filter-block">
+            <p class="field-label">题型</p>
+            <label><input type="checkbox" name="type" value="single" checked> 单选</label>
+            <label><input type="checkbox" name="type" value="multi" checked> 多选</label>
+            <label><input type="checkbox" name="type" value="judge" checked> 判断</label>
+          </div>
+
+          <label class="field-label" for="topicSelect">主题</label>
+          <select id="topicSelect" class="select-input">
+            <option value="">全部主题</option>
+          </select>
+        </section>
+
+        <section class="panel stats-panel">
+          <h2>进度</h2>
+          <div class="stat-row"><span>总题量</span><strong id="totalCount">0</strong></div>
+          <div class="stat-row"><span>已练</span><strong id="seenCount">0</strong></div>
+          <div class="stat-row"><span>错题</span><strong id="wrongCount">0</strong></div>
+          <div class="stat-row"><span>正确率</span><strong id="accuracyRate">0%</strong></div>
+        </section>
+      </aside>
+
+      <section class="workspace">
+        <div class="session-bar">
+          <div>
+            <p id="sessionLabel" class="eyebrow">未开始</p>
+            <h2 id="sessionTitle">选择模式后开始</h2>
+          </div>
+          <div class="session-meta">
+            <span id="timer">00:00</span>
+            <span id="progressText">0 / 0</span>
+          </div>
+        </div>
+
+        <article id="questionPanel" class="question-panel empty">
+          <div class="empty-state">
+            <h2>先用随机练习热身，再做样卷模拟。</h2>
+            <p>所有答题记录只保存在当前浏览器，不会上传。</p>
+          </div>
+        </article>
+
+        <div class="answer-actions">
+          <button id="prevBtn" class="ghost-btn" type="button">上一题</button>
+          <button id="submitBtn" class="primary-btn" type="button">提交答案</button>
+          <button id="nextBtn" class="ghost-btn" type="button">下一题</button>
+          <button id="finishBtn" class="ghost-btn" type="button">交卷</button>
+        </div>
+
+        <section id="summaryPanel" class="summary-panel" hidden></section>
+      </section>
+    </main>
+  </div>
+
+  <script src="./questions.js"></script>
+  <script src="./app.js"></script>
+</body>
+</html>
